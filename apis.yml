@@ -4,6 +4,10 @@ url:
 modified: '2026-03-24'
 apis: []
 common:
+  - type: GitHubOrganization
+    url: https://github.com/sentryinsurance
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/sentry
   - type: Website
     url: https://www.sentry-insurance-group.com
 description: >-

@@ -1,4 +1,5 @@
 aid: sentry-insurance-group
+name: "Sentry Insurance"
 specificationVersion: '0.23'
 accessModel:
   pricing: unknown

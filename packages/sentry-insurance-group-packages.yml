@@ -1,0 +1,21 @@
+generated: '2026-08-29'
+method: searched
+source: >-
+  https://api.github.com/orgs/sentryinsurance/repos (all 15 public repos, 2026-08-29);
+  registry.npmjs.org search "sentry-insurance"; pypi.org/pypi/sentry-insurance/json (404);
+  pypi.org/pypi/dairyland/json (404)
+package_count: 0
+official_package_count: 0
+packages: []
+note: >-
+  Sentry Insurance publishes no client libraries. Its GitHub organization
+  (https://github.com/sentryinsurance, contact oss@sentry.com, Stevens Point WI) holds
+  15 public repositories and EVERY ONE is a fork of a third-party project — chef, ohai,
+  terraform-provider-aws, aws-tools-for-powershell, kitchen-ec2, kitchen-vagrant,
+  amazon-ecs-plugin, ec2-fleet-plugin, sagemaker-run-notebook, agentcore-samples,
+  go-bigip, pymssql, PoShLog, DoddleReport, primevue. There is no first-party source in
+  the org and no package for these forks is published under a Sentry namespace.
+  IMPORTANT — NAME COLLISION: the npm scope @sentry/* (@sentry/core, @sentry/browser,
+  @sentry/node, @sentry/cli …) belongs to Sentry / Functional Software Inc., the
+  error-monitoring company at sentry.io. It is a DIFFERENT COMPANY from Sentry Insurance
+  (sentry.com, Stevens Point WI mutual insurer) and none of those packages are recorded here.

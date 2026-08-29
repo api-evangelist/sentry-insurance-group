@@ -1,0 +1,13 @@
+generated: '2026-08-29'
+method: searched
+source: https://www.sentry.com/ sitemap + https://account.sentry.com/oauth2/default/.well-known/openid-configuration
+limit_count: 0
+rate_limits: []
+headers: []
+note: >-
+  No rate limits are published. Sentry Insurance has no developer documentation, so there
+  is no documented quota, window, burst allowance or exhaustion status code. The only
+  live API surface on a Sentry-controlled host is the account.sentry.com Okta
+  authorization server, whose limits are Okta tenant defaults and are not published by
+  Sentry Insurance; no X-RateLimit-*/RateLimit-* headers were asserted by the anonymous
+  discovery responses observed. Honest zero.

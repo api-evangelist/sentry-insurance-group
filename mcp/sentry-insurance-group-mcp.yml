@@ -1,0 +1,22 @@
+generated: '2026-08-29'
+method: searched
+source: >-
+  probes of www.sentry.com, insight.sentry.com, quickpay.sentry.com, account.sentry.com,
+  www.dairylandinsurance.com and www.dairyland.com; GitHub org sentryinsurance (15 repos,
+  all third-party forks); web search for a Sentry Insurance MCP server
+status: none
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: unknown
+  verified: probed
+tools: []
+note: >-
+  Sentry Insurance ships no MCP server, hosted or local, and no candidate tool list could
+  be derived because the company publishes no OpenAPI to derive one from. No endpoint is
+  invented here. NAME COLLISION WARNING: searches for "Sentry MCP" return the official
+  MCP server operated by Sentry / Functional Software Inc. (sentry.io, error monitoring) —
+  a different company from Sentry Insurance (sentry.com, Wisconsin mutual insurer). That
+  server is NOT recorded as belonging to this provider.

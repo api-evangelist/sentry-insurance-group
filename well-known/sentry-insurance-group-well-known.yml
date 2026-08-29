@@ -1,0 +1,119 @@
+generated: '2026-08-29'
+method: probed
+source: live anonymous GET of /.well-known/* on every Sentry Insurance host reachable from apis.yml and the sentry.com portal pages
+note: >-
+  Sentry Insurance publishes no developer portal and no product API, but its customer/agent
+  sign-in is an Okta-hosted OpenID Connect tenant on its OWN domain (account.sentry.com),
+  and that tenant serves RFC 8414 / OpenID Connect Discovery metadata anonymously. Those
+  three documents are the only machine-readable API artifacts the company serves. They
+  describe the identity provider that fronts insight.sentry.com, NOT a business API —
+  the token they issue is only usable against Sentry's own first-party portal clients.
+  Every /.well-known/ path on the marketing hosts (www.sentry.com, www.dairylandinsurance.com)
+  and on quickpay.sentry.com returns a 404 HTML page.
+hosts:
+  - host: account.sentry.com
+    note: Okta tenant on Sentry Insurance's own apex domain; fronts insight.sentry.com sign-in
+    documents:
+      - path: /oauth2/default/.well-known/openid-configuration
+        status: 200
+        file: sentry-insurance-group-openid-configuration.json
+        content_type: application/json
+      - path: /oauth2/default/.well-known/oauth-authorization-server
+        status: 200
+        file: sentry-insurance-group-oauth-authorization-server.json
+        content_type: application/json
+      - path: /.well-known/openid-configuration
+        status: 200
+        file: sentry-insurance-group-org-openid-configuration.json
+        content_type: application/json
+        note: org-level authorization server (issuer https://account.sentry.com)
+      - path: /.well-known/security.txt
+        status: 405
+      - path: /.well-known/api-catalog
+        status: 405
+      - path: /.well-known/oauth-protected-resource
+        status: 405
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: www.sentry.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: insight.sentry.com
+    note: >-
+      every path 302s into the account.sentry.com OAuth authorize endpoint and resolves 200
+      on the login HTML — an authenticated portal, not a served document. Counted as a miss.
+    documents:
+      - path: /.well-known/security.txt
+        status: 302
+      - path: /.well-known/openid-configuration
+        status: 302
+      - path: /.well-known/oauth-protected-resource
+        status: 302
+      - path: /.well-known/api-catalog
+        status: 302
+      - path: /.well-known/agent-card.json
+        status: 302
+      - path: /.well-known/agent.json
+        status: 302
+  - host: quickpay.sentry.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: www.dairylandinsurance.com
+    note: Dairyland is a Sentry Insurance Group personal-lines brand
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: www.dairyland.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+security_txt: false
+api_catalog: false

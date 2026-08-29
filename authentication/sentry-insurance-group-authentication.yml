@@ -1,0 +1,78 @@
+generated: '2026-08-29'
+method: probed
+source: https://account.sentry.com/oauth2/default/.well-known/openid-configuration
+docs: https://www.sentry.com/what-we-offer/tools-and-services/online-tools-and-portals
+summary: >-
+  Sentry Insurance publishes no product API and therefore no developer authentication
+  contract. What it does serve, anonymously and machine-readably, is the OpenID Connect
+  discovery metadata for the Okta tenant on its own domain (account.sentry.com) that
+  authenticates customers and appointed agents into insight.sentry.com. This profile
+  describes THAT authorization server verbatim from its published metadata. It is a
+  first-party portal identity provider, not an integration surface: no public client
+  registration, no documented API scopes, no developer key issuance.
+applies_to: Sentry Insurance customer / agent portal sign-in (insight.sentry.com)
+not_a_developer_api: true
+schemes:
+  - id: sentry_okta_oidc
+    type: openIdConnect
+    protocol: OpenID Connect 1.0
+    openid_connect_url: https://account.sentry.com/oauth2/default/.well-known/openid-configuration
+    issuer: https://account.sentry.com/oauth2/default
+    endpoints:
+      authorization: https://account.sentry.com/oauth2/default/v1/authorize
+      token: https://account.sentry.com/oauth2/default/v1/token
+      userinfo: https://account.sentry.com/oauth2/default/v1/userinfo
+      jwks: https://account.sentry.com/oauth2/default/v1/keys
+      introspection: https://account.sentry.com/oauth2/default/v1/introspect
+      revocation: https://account.sentry.com/oauth2/default/v1/revoke
+      end_session: https://account.sentry.com/oauth2/default/v1/logout
+      device_authorization: https://account.sentry.com/oauth2/default/v1/device/authorize
+      dynamic_client_registration: https://account.sentry.com/oauth2/v1/clients
+    grant_types:
+      - authorization_code
+      - implicit
+      - refresh_token
+      - password
+      - client_credentials
+      - urn:ietf:params:oauth:grant-type:device_code
+      - urn:openid:params:grant-type:ciba
+    response_types: [code, token, id_token, code id_token, code token, id_token token, code id_token token]
+    pkce:
+      supported: true
+      methods: [S256]
+    dpop:
+      supported: true
+      algs: [RS256, RS384, RS512, ES256, ES384, ES512]
+    token_endpoint_auth_methods:
+      - client_secret_basic
+      - client_secret_post
+      - client_secret_jwt
+      - private_key_jwt
+      - none
+    id_token_signing_algs: [RS256]
+    subject_types: [public]
+    observed_client:
+      note: >-
+        the live insight.sentry.com sign-in redirect uses response_type=code with
+        code_challenge_method=S256 and scope "offline_access openid profile email",
+        confirming authorization code + PKCE is the deployed flow.
+      observed_at: '2026-08-29'
+  - id: sentry_okta_org_oidc
+    type: openIdConnect
+    protocol: OpenID Connect 1.0
+    openid_connect_url: https://account.sentry.com/.well-known/openid-configuration
+    issuer: https://account.sentry.com
+    note: org-level Okta authorization server; adds the `groups` scope, omits the myAccount scope family
+api_key_auth: false
+mutual_tls: false
+public_client_registration:
+  endpoint_advertised: https://account.sentry.com/oauth2/v1/clients
+  usable_by_third_parties: unknown
+  note: >-
+    Okta advertises the RFC 7591 dynamic client registration endpoint in its metadata by
+    default; Sentry Insurance publishes no documentation offering it to third parties, so
+    no claim is made that an outside developer can register a client.
+gaps:
+  - no developer-facing authentication documentation is published anywhere on sentry.com
+  - no API key, token, or credential issuance flow is documented for partners or agents
+  - scopes are the stock Okta/OIDC set; no business-domain scopes are published

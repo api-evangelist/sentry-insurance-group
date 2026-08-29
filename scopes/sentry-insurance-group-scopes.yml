@@ -1,0 +1,90 @@
+generated: '2026-08-29'
+method: probed
+source: https://account.sentry.com/oauth2/default/.well-known/openid-configuration
+docs: null
+note: >-
+  These are the scopes the Sentry Insurance Okta tenant (account.sentry.com) advertises in
+  its published OIDC/OAuth 2.0 metadata. They are the stock OpenID Connect set plus Okta's
+  myAccount self-service family and one tenant-specific scope (`interclient_access`).
+  Sentry Insurance publishes NO scope reference page and no business-domain scopes — there
+  is no product API for a scope to protect. Recorded verbatim from the metadata, not curated.
+issuer: https://account.sentry.com/oauth2/default
+scope_count: 25
+scopes:
+  - name: openid
+    description: OpenID Connect — request an ID token.
+    standard: OpenID Connect Core 1.0
+  - name: profile
+    description: Basic profile claims (name, family_name, given_name, locale, zoneinfo, updated_at).
+    standard: OpenID Connect Core 1.0
+  - name: email
+    description: email and email_verified claims.
+    standard: OpenID Connect Core 1.0
+  - name: address
+    description: address claim.
+    standard: OpenID Connect Core 1.0
+  - name: phone
+    description: phone_number and phone_number_verified claims.
+    standard: OpenID Connect Core 1.0
+  - name: offline_access
+    description: Issue a refresh token. Observed in the live insight.sentry.com sign-in request.
+    standard: OpenID Connect Core 1.0
+  - name: device_sso
+    description: Okta device single sign-on token.
+    standard: Okta
+  - name: groups
+    description: Group membership claim. Advertised only by the org-level authorization server (issuer https://account.sentry.com).
+    standard: Okta
+  - name: interclient_access
+    description: >-
+      Tenant-defined scope on the `default` authorization server. Sentry Insurance publishes
+      no description of it; recorded as advertised, meaning undocumented.
+    standard: tenant-specific
+  - name: okta.myAccount.manage
+    description: Manage the signed-in user's own Okta account.
+    standard: Okta myAccount
+  - name: okta.myAccount.read
+    description: Read the signed-in user's own Okta account.
+    standard: Okta myAccount
+  - name: okta.myAccount.profile.manage
+    description: Manage the signed-in user's own profile.
+    standard: Okta myAccount
+  - name: okta.myAccount.profile.read
+    description: Read the signed-in user's own profile.
+    standard: Okta myAccount
+  - name: okta.myAccount.email.manage
+    description: Manage the signed-in user's own email factors.
+    standard: Okta myAccount
+  - name: okta.myAccount.email.read
+    description: Read the signed-in user's own email factors.
+    standard: Okta myAccount
+  - name: okta.myAccount.phone.manage
+    description: Manage the signed-in user's own phone factors.
+    standard: Okta myAccount
+  - name: okta.myAccount.phone.read
+    description: Read the signed-in user's own phone factors.
+    standard: Okta myAccount
+  - name: okta.myAccount.authenticators.manage
+    description: Manage the signed-in user's own authenticators.
+    standard: Okta myAccount
+  - name: okta.myAccount.authenticators.read
+    description: Read the signed-in user's own authenticators.
+    standard: Okta myAccount
+  - name: okta.myAccount.appAuthenticator.manage
+    description: Manage the signed-in user's own app authenticator enrollment.
+    standard: Okta myAccount
+  - name: okta.myAccount.appAuthenticator.read
+    description: Read the signed-in user's own app authenticator enrollment.
+    standard: Okta myAccount
+  - name: okta.myAccount.appAuthenticator.maintenance.manage
+    description: Manage app authenticator maintenance operations.
+    standard: Okta myAccount
+  - name: okta.myAccount.appAuthenticator.maintenance.read
+    description: Read app authenticator maintenance state.
+    standard: Okta myAccount
+  - name: okta.myAccount.oktaApplications.read
+    description: Read the applications assigned to the signed-in user.
+    standard: Okta myAccount
+  - name: okta.myAccount.organization.read
+    description: Read organization metadata visible to the signed-in user.
+    standard: Okta myAccount

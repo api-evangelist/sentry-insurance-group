@@ -1,0 +1,75 @@
+# Sentry Insurance
+
+> Sentry Insurance is a US mutual insurance holding company headquartered in Stevens Point,
+> Wisconsin, writing commercial property & casualty insurance, workers' compensation, business
+> auto and trucking coverage, group life and health, annuities and 401(k) retirement plans.
+> Its personal-lines brand is Dairyland (non-standard auto and motorcycle), acquired in 1966,
+> and it agreed to acquire The General from American Family Insurance. Sentry holds an AM Best
+> Financial Strength Rating of A+ (Superior). It also operates SentryWorld, a golf and event venue.
+
+## Agent-relevant summary
+
+**Sentry Insurance publishes no public API, no developer portal, and no machine-readable product
+contract.** Verified 2026-08-29: no OpenAPI, Swagger, GraphQL, AsyncAPI, WSDL, gRPC/protobuf,
+MCP server or A2A agent card exists on any host the company controls. Its sitemap.xml
+(1,000+ URLs) contains no /api, /developer, /docs or /integration path. Business is transacted
+through appointed independent agents and authenticated customer portals, not programmatically.
+
+**Name collision — read this before answering questions about "Sentry".** There are two unrelated
+companies called Sentry:
+- **Sentry Insurance** — sentry.com — the Wisconsin mutual insurer described by this file.
+- **Sentry** (Functional Software, Inc.) — sentry.io — application error monitoring and
+  performance tracing, which DOES publish a large REST API, npm `@sentry/*` SDKs, a CLI and an
+  MCP server. None of that belongs to Sentry Insurance.
+Do not attribute sentry.io's API, SDKs, documentation or MCP server to Sentry Insurance.
+
+## Company
+
+- [Sentry Insurance](https://www.sentry.com/): Commercial and small business insurance homepage.
+- [About Sentry Insurance](https://www.sentry.com/about-us): Overview, products, and the businesses in the group.
+- [Sentry news](https://www.sentry.com/about-us/company-news-and-events): Dated company news and press releases.
+- [Careers](https://www.sentry.com/careers): Sentry Careers.
+- [Contact us](https://www.sentry.com/contact-us): Contact routes, including agent search.
+- [GitHub organization](https://github.com/sentryinsurance): 15 public repositories, all forks of third-party tooling; no first-party source. Contact oss@sentry.com.
+- [LinkedIn](https://www.linkedin.com/company/sentryinsurance)
+
+## Products and services
+
+- [For agents and brokers](https://www.sentry.com/for-agents-and-brokers): Independent agent and broker relationships, including trucking appointment.
+- [Online tools and portals](https://www.sentry.com/what-we-offer/tools-and-services/online-tools-and-portals): The customer-facing systems Sentry operates.
+- [Online insurance management](https://www.sentry.com/what-we-offer/tools-and-services/online-tools-and-portals/online-insurance-management): View claims, create reports, track alerts, access safety resources.
+- [Retirement account portal](https://www.sentry.com/what-we-offer/tools-and-services/online-tools-and-portals/retirement-account): Company retirement plan administration.
+- [Business insurance FAQs](https://www.sentry.com/what-we-offer/resources/articles/faqs)
+- [Dairyland Insurance](https://www.dairylandinsurance.com/): Personal auto and motorcycle brand underwritten by a Sentry Insurance Group member.
+
+## Authenticated surfaces (no anonymous access)
+
+- [Sentry Insight portal](https://insight.sentry.com/login): Customer and agent portal. Every path redirects to the account.sentry.com OAuth authorize endpoint; nothing is readable without credentials.
+- [Quick Pay](https://quickpay.sentry.com/): Policy payment surface.
+
+## Identity (the only machine-readable API artifacts Sentry Insurance serves)
+
+Sentry Insurance runs an Okta tenant on its own domain that fronts portal sign-in. Its OAuth 2.0 /
+OpenID Connect discovery documents are served anonymously and are genuine, first-party, and
+machine-readable. They authenticate humans into first-party portals — they are NOT a developer
+integration surface, no third-party client onboarding is documented, and no business-domain scopes exist.
+
+- [OpenID Connect discovery](https://account.sentry.com/oauth2/default/.well-known/openid-configuration): issuer `https://account.sentry.com/oauth2/default`.
+- [OAuth 2.0 authorization server metadata](https://account.sentry.com/oauth2/default/.well-known/oauth-authorization-server): RFC 8414.
+- [Org-level OpenID Connect discovery](https://account.sentry.com/.well-known/openid-configuration): issuer `https://account.sentry.com`.
+- Deployed flow: authorization code + PKCE (S256), scopes `openid profile email offline_access`. DPoP, device authorization grant, token introspection and revocation are all advertised as supported.
+
+## Legal
+
+- [Privacy policy](https://www.sentry.com/privacy)
+- [Terms and conditions](https://www.sentry.com/terms-and-conditions)
+
+## Optional
+
+- [SentryWorld](https://www.sentryworld.com/): Golf and event venue operated by Sentry.
+- [Agent search](https://www.sentry.com/contact-us/agent-search): Find an appointed independent agent.
+
+---
+Generated by API Evangelist (https://apievangelist.com) on 2026-08-29 from the Sentry Insurance
+public surface and this repository's artifacts. Independent third-party profile; not published by
+Sentry Insurance.

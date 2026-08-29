@@ -1,0 +1,11 @@
+generated: '2026-08-29'
+method: searched
+source: https://www.sentry.com/ (sitemap.xml, 1,000+ URLs, scanned 2026-08-29 for pricing/plans/developer paths)
+plan_count: 0
+plans: []
+note: >-
+  Sentry Insurance publishes no API plans or developer pricing because it publishes no
+  API. Insurance premiums are quoted through appointed independent agents
+  (https://www.sentry.com/contact-us/agent-search) and are not a machine-readable
+  commercial surface. No /pricing, /plans or developer-tier page exists on any Sentry or
+  Dairyland host. This is an honest zero, not an unmeasured gap.

@@ -1,7 +1,9 @@
 ---
 title: Sentry Lloyds of TX 'AApi' Financial Strength Rating Affirmed
 url: https://www.spglobal.com/ratings/en/regulatory/article/-/view/type/HTML/id/133737
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Sentry Insurance Group" press release artificial intelligence'
 position: 2
 source: serpapi-google

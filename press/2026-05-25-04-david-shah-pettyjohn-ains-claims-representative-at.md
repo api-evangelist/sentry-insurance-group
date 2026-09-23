@@ -1,7 +1,9 @@
 ---
 title: David Shah-Pettyjohn, AINS - Claims Representative at ...
 url: https://www.linkedin.com/in/david-pettyjohn
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Sentry Insurance Group" press release artificial intelligence'
 position: 4
 source: serpapi-google

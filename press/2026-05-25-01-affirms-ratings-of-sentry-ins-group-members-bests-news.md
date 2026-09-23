@@ -1,7 +1,9 @@
 ---
 title: Affirms Ratings of Sentry Ins Group Members - Best's News
 url: https://news.ambest.com/newscontent.aspx?altsrc=149&refnum=233871
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Sentry Insurance Group" press release artificial intelligence'
 position: 1
 source: serpapi-google

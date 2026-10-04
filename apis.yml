@@ -34,7 +34,7 @@ tags:
 - Retirement
 - Annuities
 - Mutual Insurance
-- Financial-Services
+- Financial Services
 - Trucking
 - Wisconsin
 - United States
@@ -52,6 +52,7 @@ tags_raw:
 - Trucking
 - Wisconsin
 - United States
+- Financial-Services
 url: https://raw.githubusercontent.com/api-evangelist/sentry-insurance-group/refs/heads/main/apis.yml
 modified: '2026-08-29'
 apis: []
